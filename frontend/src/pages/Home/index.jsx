@@ -1,7 +1,8 @@
 import Categories from '../../components/Categories'
+import Card from '../../components/Card'
 import './Home.css'
 import { useEffect, useState } from 'react'
-import Card from '../../components/Card'
+import { getProducts } from '../../services/productService'
 
 export default function Page() {
     const [selectBtn, setSelectedBtn] = useState('');
@@ -19,7 +20,7 @@ export default function Page() {
     return (
         <div>
            <Categories selectedBtn={selectBtn} onSelect={setSelectedBtn}/>
-           <div className='card-container'>
+           <div className='cards-container'>
             {products.map((item) => (
                 <Card
                 name= {item.title}
